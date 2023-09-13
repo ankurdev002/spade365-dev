@@ -1,0 +1,29 @@
+{
+  "name": "spade",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "cd ./admin && npm install && npm run build && cd ../frontend && npm install && npm run build && cd ../api && npm install && npm run build",
+    "api": "cd api && npm run start:prod",
+    "admin": "cd admin && npm run start",
+    "frontend": "cd frontend && npm run start",
+    "landing-register-01": "cd landing-register-01 && npm run start",
+    "landing-register-02": "cd landing-register-02 && npm run start",
+    "api-dev": "cd api && npm install && npm run start:dev",
+    "admin-dev": "cd admin && npm install && npm run dev",
+    "frontend-dev": "cd frontend && npm install && npm run dev",
+    "landing-register-01-dev": "cd landing-register-01 && npm install && npm run dev",
+    "landing-register-02-dev": "cd landing-register-02 && npm install && npm run dev",
+    "dev": "concurrently \"npm run api-dev\" \"npm run admin-dev\" \"npm run frontend-dev\"",
+    "start": "concurrently \"npm run api\" \"npm run admin\" \"npm run frontend\" \"npm run landing-register-01\" \"npm run landing-register-02\"",
+    "postbuild": "cd ./api && node ./src/utils/postbuild.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ph33nx/SPADE.git"
+  },
+  "dependencies": {
+    "concurrently": "^7.6.0"
+  }
+}
